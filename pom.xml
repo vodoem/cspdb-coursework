@@ -12,10 +12,10 @@
     </parent>
 
     <groupId>ru.tbank</groupId>
-    <artifactId>cspdb-coursework</artifactId>
+    <artifactId>cspdb-project-management</artifactId>
     <version>1.0.0</version>
-    <name>cspdb-coursework</name>
-    <description>Course project: project management information system</description>
+    <name>cspdb-project-management</name>
+    <description>Project management information system</description>
 
     <properties>
         <java.version>21</java.version>

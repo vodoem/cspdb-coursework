@@ -1,6 +1,4 @@
-# Project Management Coursework (Spring Boot + PostgreSQL + Thymeleaf)
-
-Учебное клиент-серверное веб-приложение для дисциплины «Клиент-серверные приложения баз данных».
+# Project Management System (Spring Boot + PostgreSQL + Thymeleaf)
 
 ## Технологии
 - Java 21
