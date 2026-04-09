@@ -1,0 +1,5 @@
+<!DOCTYPE html><html lang="ru" xmlns:th="http://www.thymeleaf.org"><head th:replace="~{fragments/header :: head('Просроченные задачи')}"/>
+<body><div th:replace="~{fragments/navbar :: navbar}"></div><main class="container py-4"><h1 class="h3 mb-3">Просроченные задачи по проектам</h1>
+<div class="table-responsive bg-white shadow-sm rounded"><table class="table table-striped mb-0"><thead><tr><th>Проект</th><th>Задача</th><th>Статус</th><th>Плановая дата</th><th>Фактическая дата</th></tr></thead><tbody><tr th:each="r : ${rows}"><td th:text="${r.projectName}"></td><td th:text="${r.taskNumber + ' - ' + r.taskName}"></td><td th:text="${r.taskStatus}"></td><td th:text="${r.plannedDateOfEnd}"></td><td th:text="${r.factDateOfEnd}"></td></tr></tbody></table></div>
+<p class="text-muted small mt-2">Сотрудники доступны в карточке задачи.</p>
+</main><div th:replace="~{fragments/footer :: footer}"></div></body></html>

@@ -1,0 +1,5 @@
+<!DOCTYPE html><html lang="ru" xmlns:th="http://www.thymeleaf.org"><head th:replace="~{fragments/header :: head('Задачи')}"/>
+<body><div th:replace="~{fragments/navbar :: navbar}"></div><main class="container py-4"><h1 class="h3 mb-3">Список задач</h1>
+<div class="table-responsive bg-white shadow-sm rounded"><table class="table table-striped mb-0"><thead><tr><th>Номер</th><th>Название</th><th>Проект</th><th>Статус</th><th>Тип</th><th>План</th><th>Факт</th><th></th></tr></thead><tbody>
+<tr th:each="t : ${tasks}"><td th:text="${t.number}"></td><td th:text="${t.name}"></td><td th:text="${t.project.name}"></td><td th:text="${t.taskStatus.name}"></td><td th:text="${t.taskType.name}"></td><td th:text="${t.plannedPayload}"></td><td th:text="${t.factPayload}"></td><td><a class="btn btn-sm btn-outline-primary" th:href="@{/tasks/{id}(id=${t.id})}">Открыть</a></td></tr>
+</tbody></table></div></main><div th:replace="~{fragments/footer :: footer}"></div></body></html>

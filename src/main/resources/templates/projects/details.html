@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head('Карточка проекта')}"/>
+<body><div th:replace="~{fragments/navbar :: navbar}"></div>
+<main class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-3"><h1 class="h3">Проект <span th:text="${project.code}"></span></h1>
+        <div><a class="btn btn-primary" th:href="@{/project-assignments/new}">Назначить сотрудника на проект</a>
+            <a class="btn btn-outline-secondary" th:href="@{/tasks(projectId=${project.id})}">Показать задачи проекта</a></div></div>
+    <div class="card shadow-sm mb-3"><div class="card-body">
+        <p><strong>Название:</strong> <span th:text="${project.name}"></span></p>
+        <p><strong>Описание:</strong> <span th:text="${project.description}"></span></p>
+        <p><strong>Даты:</strong> <span th:text="${project.dateOfStart}"></span> — <span th:text="${project.plannedDateOfEnd}"></span></p>
+        <p><strong>Статус:</strong> <span th:text="${project.status}"></span></p>
+        <p><strong>Тип:</strong> <span th:text="${project.projectType.name}"></span></p>
+        <p><strong>Ответственный:</strong> <span th:text="${project.responsibleEmployee.fullName}"></span></p>
+        <p><strong>Трудоемкость:</strong> план <span th:text="${project.plannedPayload}"></span>, факт <span th:text="${project.factPayload}"></span></p>
+    </div></div>
+    <div class="row g-3"><div class="col-md-7"><div class="card shadow-sm"><div class="card-header">Задачи проекта</div><ul class="list-group list-group-flush">
+        <li class="list-group-item" th:each="t : ${tasks}"><a th:href="@{/tasks/{id}(id=${t.id})}" th:text="${t.number + ' - ' + t.name}"></a></li>
+    </ul></div></div>
+        <div class="col-md-5"><div class="card shadow-sm"><div class="card-header">Сотрудники и роли</div><ul class="list-group list-group-flush">
+            <li class="list-group-item" th:each="a : ${assignments}" th:text="${a.employee.fullName + ' — ' + a.projectRole.name}"></li>
+        </ul></div></div></div>
+</main><div th:replace="~{fragments/footer :: footer}"></div></body></html>
