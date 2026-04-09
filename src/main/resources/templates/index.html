@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head('Главная')}"/>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<main class="container py-4">
+    <div class="p-4 bg-white rounded shadow-sm mb-4">
+        <h1 class="h3">Информационная система управления проектами</h1>
+        <p class="mb-0">Учебное MVC-приложение на Spring Boot + PostgreSQL + Thymeleaf.</p>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-3" th:each="item : ${#arrays.array('Проекты','Сотрудники','Задачи','Отчеты')}">
+            <div class="card main-card shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title" th:text="${item}"></h5>
+                    <p class="card-text text-muted">Переход к разделу</p>
+                    <a class="btn btn-primary mt-auto" th:href="${item == 'Проекты' ? '/projects' : (item == 'Сотрудники' ? '/employees' : (item == 'Задачи' ? '/tasks' : '/reports'))}">Открыть</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+<!DOCTYPE html><html lang="ru" xmlns:th="http://www.thymeleaf.org"><head th:replace="~{fragments/header :: head('Отчет по загрузке сотрудников')}"/>
+<body><div th:replace="~{fragments/navbar :: navbar}"></div><main class="container py-4"><h1 class="h3 mb-3">Загрузка сотрудников по задачам</h1>
+<div class="table-responsive bg-white shadow-sm rounded"><table class="table table-striped mb-0"><thead><tr><th>Сотрудник</th><th>Проект</th><th>Задача</th><th>Статус</th><th>План</th><th>Факт</th></tr></thead><tbody><tr th:each="r : ${rows}"><td th:text="${r.employee}"></td><td th:text="${r.project}"></td><td th:text="${r.taskNumber + ' - ' + r.taskName}"></td><td th:text="${r.assignmentStatus}"></td><td th:text="${r.plannedPayload}"></td><td th:text="${r.factPayload}"></td></tr></tbody></table></div>
+</main><div th:replace="~{fragments/footer :: footer}"></div></body></html>
